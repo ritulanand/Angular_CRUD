@@ -1,0 +1,40 @@
+<!-- <button>Save</button>
+<button class="btn btn-success">Submit</button>
+<button class="btn btn-primary">Submit</button>
+<button class="btn btn-danger">cancel</button>
+
+<i class="fa fa-edit"></i>
+<i class="fa fa-trash-o"></i> -->
+
+
+
+
+ // this._toaster.success('saved success', 'user master');
+    // this._toaster.info('info success', 'user master');
+    // this._toaster.warning('warning', 'user master');
+    // this._toaster.error('error', 'user master');
+    // Swal.fire('hello world')
+    // Swal.fire('Oops... ', 'Something went wrong', 'error');
+    // Swal.fire('wow... ', 'good', 'success')
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'you will not be able to recover this record',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'yes delete it',
+      cancelButtonText: 'No keep it '
+    }).then((result) => {
+      if(result.value){
+        Swal.fire(
+          'Deleted',
+          'your record has been  deleted',
+          'success'
+        )
+      }else if(result.dismiss === Swal.DismissReason.cancel){
+        Swal.fire(
+          'cancelled',
+          'your record is safe',
+          'error'
+        )
+      }
+    })
